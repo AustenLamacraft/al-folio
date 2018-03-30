@@ -86,13 +86,24 @@
     color: $theme-color;
     font-style: normal;
 }
+.paper-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    > li {
+        border-bottom: 1px solid $light-gray;
+        padding-bottom: $space-3;
+        padding-top: $space-3;
+    }
+}
 .paper {
     box-sizing: border-box;
     float: left;
     height: 350px;
     padding: 10px;
     vertical-align: middle;
-    width: 33.33%;
+    width: 50%;
 
     .thumbnail {
         overflow: hidden;
@@ -101,10 +112,7 @@
 
         img {
             height: auto;
-            position: relative;
-                left: -25%;
-                top: -5%;
-            width: 250px;
+            position: absolute;
         }
 
         a {
@@ -141,5 +149,19 @@
                 }
             }
         }
+    }
+    .paper-title {
+        font-size: 30px;
+        letter-spacing: -1px;
+        line-height: 1;
+        margin-bottom: 10px;
+        margin-top: 0;
+        // @include media-query($on-laptop) {
+        //     font-size: 36px;
+        // }
+    }
+    .paper-link {
+        display: block;
+        font-size: 20px;
     }
 }
