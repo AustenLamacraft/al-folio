@@ -6,7 +6,20 @@ description: Publications by categories in reversed chronological order. Generat
 years: [1956, 1950, 1935, 1905]
 ---
 
-{% for y in page.years %}
-  <h3 class="year">{{y}}</h3>
-  {% bibliography -f papers -q @*[year={{y}}]* %}
+{% for paper in site.publications reversed %}
+
+<div class="paper">
+    <div class="thumbnail">
+        <a href="{{ paper.url | prepend: site.baseurl | prepend: site.url }}">
+        {% if paper.image %}
+        <img class="thumbnail" src="{{ paper.image | prepend: site.baseurl | prepend: site.url }}"/>
+        {% else %}
+        <div class="thumbnail blankbox"></div>
+        {% endif %}    
+        </a>
+    </div>
+    <div class="smallhead media-heading"><a href="{{ site.baseurl }}{{ paper.url }}" class="off">{{ paper.title }}</a></div>
+    <p class="note">{{ paper.ref }}</p>
+</div>
+
 {% endfor %}

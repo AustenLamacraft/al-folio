@@ -11,8 +11,8 @@ description: A growing collection of your cool projects.
 <div class="project">
     <div class="thumbnail">
         <a href="{{ project.redirect }}" target="_blank">
-        {% if project.img %}
-        <img class="thumbnail" src="{{ project.img | prepend: site.baseurl | prepend: site.url }}"/>
+        {% if project.image %}
+        <img class="thumbnail" src="{{ project.image | prepend: site.baseurl | prepend: site.url }}"/>
         {% else %}
         <div class="thumbnail blankbox"></div>
         {% endif %}    
@@ -29,8 +29,8 @@ description: A growing collection of your cool projects.
 <div class="project ">
     <div class="thumbnail">
         <a href="{{ project.url | prepend: site.baseurl | prepend: site.url }}">
-        {% if project.img %}
-        <img class="thumbnail" src="{{ project.img | prepend: site.baseurl | prepend: site.url }}"/>
+        {% if project.image %}
+        <img class="thumbnail" src="{{ project.image | prepend: site.baseurl | prepend: site.url }}" />
         {% else %}
         <div class="thumbnail blankbox"></div>
         {% endif %}    

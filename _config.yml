@@ -21,15 +21,14 @@ github_username: AustenLamacraft
 twitter_username: AustenLamacraft
 scholar_authorid: ERR4TF0AAAAJ
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
-
+  Twitter may be best.
 google_analytics: UA-XXXXXXXXX # out your google-analytics code
 
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
-blog_name: Minimal Working Example
-blog_description: Many body and statistical physics; machine learning
+blog_name: minimal working example
+blog_description: statistical physics and machine learning
 
 # Pagination
 paginate: 4
@@ -61,6 +60,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  publications:
+    output: true
+    permalink: /publications/:path/  
 
 news_limit: 5
 
