@@ -2,7 +2,7 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Recent courses
+description: recent courses
 ---
 
 In Michaelmas term I teach [Theories of Quantum Matter](http://tqm.courses.phy.cam.ac.uk/), a Part III course.

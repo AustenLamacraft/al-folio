@@ -1,0 +1,53 @@
+---
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{{ site.name }} | minimal working example</title>
+  <meta name="description" content="{{ site.description }}">
+
+  <link rel="shortcut icon" href="{{ '/assets/img/favicon.ico' | prepend: site.baseurl | prepend: site.url }}">
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+</head>
+
+  <body>
+
+    {% include header.html %}
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="header-bar">
+          <h1>{{ site.blog_name }}</h1>
+          <h2>{{ site.blog_description }}</h2>
+        </div>
+
+        <ul class="post-list">
+          {% for post in paginator.posts %}
+            <li>
+              <h2><a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+              <p class="post-meta">{{ post.date | date: '%B %-d, %Y — %H:%M' }}</p>
+              <p>{{ post.description }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% include pagination.html %}
+
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+    {% include hemline.html %}
+
+  </body>
+
+</html>

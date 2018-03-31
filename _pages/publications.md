@@ -2,11 +2,11 @@
 layout: page
 permalink: /publications/
 title: publications
-description: A gallery of publications
+description: a gallery of publications
 years: [1956, 1950, 1935, 1905]
 ---
 
-Also available as a 
+Also available as a
 
 <ul class="paper-list">
 {% for paper in site.publications reversed %}
