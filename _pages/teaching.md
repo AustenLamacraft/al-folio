@@ -2,9 +2,9 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+description: Recent courses
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+In Michaelmas term I teach [Theories of Quantum Matter](http://tqm.courses.phy.cam.ac.uk/), a Part III course.
 
-Organize your courses by years, topics, or universities, however you like!
+In the past, I taught [Theoretical Physics II]({{ site.baseurl }}{% link /assets/pdfs/courses/TP2-2018.pdf %}), a course in advanced quantum mechanics for Part II students.

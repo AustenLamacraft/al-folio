@@ -2,15 +2,16 @@
 layout: about
 permalink: /
 title: <strong>Austen</strong> Lamacraft
-description: <a href="https://www.phy.cam.ac.uk">Cavendish Laboratory</a>, <a href="https://www.cam.ac.uk">University of Cambridge</a>
+description: <a href="https://www.tcm.phy.cam.ac.uk/">TCM group</a>, <a href="https://www.cam.ac.uk">University of Cambridge</a>
 
 profile:
   align: right
   image: austen_closeup.jpg
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>529 Mott Building</p>
+    <p>Cavendish Laboratory</p>
+    <p>19 JJ Thomson Avenue</p>
+    <p>Cambridge, CB3 0HE UK</p>
 
 news: true
 social: true

@@ -6,6 +6,7 @@ authors: Austen Lamacraft, Joel Moore
 year: 2011
 ref: 	Ultracold bosonic and fermionic gases,
 journal: Contemporary Concepts in Condensed Matter Science
+arxiv: 1106.3567
 doi: 	
 pdf: /assets/pdfs/papers/NonEqmBehaviour.pdf
 ---
