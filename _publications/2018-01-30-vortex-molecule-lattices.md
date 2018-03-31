@@ -6,6 +6,7 @@ authors: B. Mencia Uranga, Austen Lamacraft
 year: 2018
 ref: 	arXiv:1801.09912
 journal: arXiv
+arxiv: 1801.09912
 doi:
 pdf: /pdfs/papers/molecule_lattice.pdf
 ---

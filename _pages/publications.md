@@ -6,16 +6,6 @@ description: Publications by categories in reversed chronological order. Generat
 years: [1956, 1950, 1935, 1905]
 ---
 
-<ul class="post-list">
-  {% for post in paginator.posts %}
-    <li>
-      <h2><a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-      <p class="post-meta">{{ post.date | date: '%B %-d, %Y — %H:%M' }}</p>
-      <p>{{ post.description }}</p>
-    </li>
-  {% endfor %}
-</ul>
-
 <ul class="paper-list">
 {% for paper in site.publications reversed %}
 

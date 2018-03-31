@@ -1,84 +1,28 @@
 ---
 layout: default
 ---
+<div class="post">
 
-<div class="row">
-	<div class="col-md-12">
-		<div class="media">
-			{% if page.image %}
-			<img class="pull-left pad-right media-object" src="{{ site.baseurl }}{{ page.image }}">
-			{% endif %}
-			<div class="media-body titlebox">
-				<div class="title media-heading">
-					{{ page.title }}
-				</div>
-				<p>
-				<div class="smallhead">
-					{{ page.authors }}
-					{{ page.year }}.
-					{{ page.journal }}
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="bigspacer"></div>
-
-<div class="row">
-	<div class="col-md-3">
-		<div class="bigspacer"></div>
-		<div class="glyphbox note">
-			{% if page.pdf %}
-			<div class="smallhead">
-				PDF
-			</div>
-			<div class="pad-left note">
-				<div class="smallspacer"></div>
-				<i class="fa fa-file-text-o fa-fw"></i>
-				<a class="off" href="{{ site.baseurl }}{{ page.pdf }}">{{ page.pdf | split: '/' | last }}</a>
-			</div>
-			<div class="bigspacer"></div>
-			{% endif %}
-			{% if page.supplement %}
-			<div class="smallhead">
-				Supplement
-			</div>
-			<div class="pad-left note">
-				<div class="smallspacer"></div>
-				<i class="fa fa-paperclip fa-fw"></i>
-				<a class="off" href="{{ site.baseurl }}{{ page.supplement }}">{{ page.supplement | split: '/' | last }}</a>
-			</div>
-			<div class="bigspacer"></div>
-			{% endif %}
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">
+			{{ page.authors }}{% if page.meta %} • {{ page.meta }}{% endif %}
+			<br/>
 			{% if page.doi %}
-			<div class="smallhead">
-				DOI
-			</div>
-			<div class="pad-left note">
-				<div class="smallspacer"></div>
-				<i class="fa fa-external-link fa-fw"></i>
-				<a class="off" href="http://dx.doi.org/{{ page.doi }}">{{ page.doi }}</a>
-			</div>
-			<div class="bigspacer"></div>
+			<i class="ai ai-doi-square ai-2x"></i>
+			<a class="off" href="http://dx.doi.org/{{ page.doi }}">{{ page.ref }}</a>
+			{% else %}
+			<i class="ai ai-arxiv-square ai-2x"></i>
+			<a class="off" href="https://arxiv.org/abs/{{ page.arxiv }}">arXiv:{{ page.arxiv }}</a>
 			{% endif %}
-			{% if page.github %}
-			<div class="smallhead">
-				GitHub
-			</div>
-			<div class="pad-left note">
-				<div class="smallspacer"></div>
-				<i class="fa fa-github-alt fa-fw"></i>
-				<a class="off" href="{{ page.github }}">{{ page.github | remove: 'http://github.com/' | remove: 'https://github.com/' }}</a>
-			</div>
-			<div class="bigspacer"></div>
-			{% endif %}
-		</div>
-	</div>
-	<div class="col-md-8">
-		<div class="post">
-			{{ content }}
-		</div>
-	</div>
-	<div class="col-md-1"></div>
+			<br/>
+			<i class="fas fa-file fa-2x"></i>
+			<a class="off" href="{{ site.baseurl }}{{ page.pdf }}">{{ page.pdf | split: '/' | last }}</a>
+		</p>
+  </header>
+
+  <article class="post-content">
+    {{ content }}
+  </article>
+
 </div>

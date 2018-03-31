@@ -8,6 +8,7 @@ ref: 	arXiv:1802.09576
 journal: arXiv
 doi:
 pdf: /pdfs/papers/stochastic-dimers.pdf
+arxiv: 1802.09576
 ---
 
 # Abstract
