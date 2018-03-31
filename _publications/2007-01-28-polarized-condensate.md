@@ -7,7 +7,7 @@ year: 2007
 ref: 	Nature Physics 3, 124–128 (2007)
 journal: Nature Physics
 doi: 	10.1038/nphys520
-pdf: /pdfs/papers/NatPhysLett2.pdf
+pdf: /assets/pdfs/papers/NatPhysLett2.pdf
 ---
 
 # Abstract

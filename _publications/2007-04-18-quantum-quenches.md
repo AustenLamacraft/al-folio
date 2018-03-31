@@ -7,7 +7,7 @@ year: 2007
 ref: 	Phys. Rev. Lett. 98, 160404 (2007)
 journal: Physical Review Letters
 doi: 	10.1103/PhysRevLett.98.160404
-pdf: /pdfs/papers/quantum-quenches.pdf
+pdf: /assets/pdfs/papers/quantum-quenches.pdf
 ---
 
 # Abstract

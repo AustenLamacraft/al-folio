@@ -7,7 +7,7 @@ year: 2002
 ref: 	"NATO Science Series (Series II: Mathematics, Physics and Chemistry), vol 72. Springer, Dordrecht"
 journal: Strongly Correlated Fermions and Bosons in Low-Dimensional Disordered Systems
 doi: 	10.1007/978-94-010-0530-2_12
-pdf: /pdfs/papers/phase-coherent-superconductors.pdf
+pdf: /assets/pdfs/papers/phase-coherent-superconductors.pdf
 ---
 
 # Abstract

@@ -8,7 +8,7 @@ ref: arXiv:1509.08332
 journal: arXiv
 arxiv: 1509.08332
 doi:
-pdf: /pdfs/papers/quantum-hydrodynamics.pdf
+pdf: /assets/pdfs/papers/quantum-hydrodynamics.pdf
 ---
 
 # Abstract

@@ -7,7 +7,7 @@ year: 2014
 ref: Phys. Rev. B 90, 241415 (2014)
 journal: Physical Review B
 doi: 10.1103/PhysRevB.90.241415
-pdf: /pdfs/papers/fine-structure.pdf
+pdf: /assets/pdfs/papers/fine-structure.pdf
 ---
 
 # Abstract

@@ -7,7 +7,7 @@ year: 2004
 ref: 	Phys. Rev. Lett. 91, 036804 (2003)
 journal: Physical Review Letters
 doi: 	10.1103/PhysRevLett.91.036804
-pdf: /pdfs/papers/phase-sensitive-noise.pdf
+pdf: /assets/pdfs/papers/phase-sensitive-noise.pdf
 ---
 
 # Abstract

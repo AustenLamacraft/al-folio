@@ -7,7 +7,7 @@ year: 2010
 ref: 	Phys. Rev. B 81, 184526 (2010)
 journal: Physical Review B
 doi: 	10.1103/PhysRevB.81.184526
-pdf: /pdfs/papers/SpinorLong.pdf
+pdf: /assets/pdfs/papers/SpinorLong.pdf
 ---
 
 # Abstract

@@ -7,7 +7,7 @@ year: 2011
 ref: 	Phys. Rev. A 83, 033605 (2011)
 journal: Physical Review A
 doi: 	10.1103/PhysRevA.83.033605
-pdf: /pdfs/papers/SpinorMonod.pdf
+pdf: /assets/pdfs/papers/SpinorMonod.pdf
 ---
 
 # Abstract

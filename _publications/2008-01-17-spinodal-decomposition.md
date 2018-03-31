@@ -7,7 +7,7 @@ year: 2008
 ref: 	Phys. Rev. B 77, 014511 (2008)
 journal: Physical Review B
 doi: 	10.1103/PhysRevB.77.014511
-pdf: /pdfs/papers/spinodal-superfluid.pdf
+pdf: /assets/pdfs/papers/spinodal-superfluid.pdf
 ---
 
 # Abstract

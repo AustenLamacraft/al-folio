@@ -7,7 +7,7 @@ year: 2006
 ref: 	Phys. Rev. A 73, 011602(R) (2006)
 journal: Physical Review A
 doi: 	10.1103/PhysRevA.73.011602
-pdf: /pdfs/papers/SuperCorrel.pdf
+pdf: /assets/pdfs/papers/SuperCorrel.pdf
 ---
 
 # Abstract

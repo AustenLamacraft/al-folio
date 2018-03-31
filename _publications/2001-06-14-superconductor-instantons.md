@@ -7,7 +7,7 @@ year: 2001
 ref: 	Phys. Rev. B 64, 014514 (2001)
 journal: Physical Review B
 doi: 	10.1103/PhysRevB.64.014514
-pdf: /pdfs/papers/superconductor-instantons.pdf
+pdf: /assets/pdfs/papers/superconductor-instantons.pdf
 ---
 
 # Abstract

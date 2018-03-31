@@ -7,7 +7,7 @@ year: 2007
 ref: 	Phys. Rev. A 76, 011603(R) (2007)
 journal: Physical Review A
 doi: 	10.1103/PhysRevA.76.011603
-pdf: /pdfs/papers/FCSInsulator.pdf
+pdf: /assets/pdfs/papers/FCSInsulator.pdf
 ---
 
 # Abstract

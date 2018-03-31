@@ -7,7 +7,7 @@ year: 2004
 ref: 	Phys. Rev. B 69, 081301(R) (2004)
 journal: Physical Review B
 doi: 	10.1103/PhysRevB.69.081301
-pdf: /pdfs/papers/SpinNoise.pdf
+pdf: /assets/pdfs/papers/SpinNoise.pdf
 ---
 
 # Abstract

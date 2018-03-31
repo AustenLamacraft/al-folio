@@ -7,7 +7,7 @@ year: 2012
 ref: 	Phys. Rev. Lett. 108, 207001 (2012)
 journal: Physical Review Letters
 doi: 	10.1103/PhysRevLett.108.207001
-pdf: /pdfs/papers/genXYlett3
+pdf: /assets/pdfs/papers/genXYlett3
 ---
 
 # Abstract

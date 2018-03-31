@@ -7,7 +7,7 @@ year: 2007
 ref: 	Phys. Rev. Lett. 98, 160402 (2007)
 journal: Physical Review Letters
 doi: 	10.1103/PhysRevLett.98.160402
-pdf: /pdfs/papers/unequal-masses.pdf
+pdf: /assets/pdfs/papers/unequal-masses.pdf
 ---
 
 # Abstract

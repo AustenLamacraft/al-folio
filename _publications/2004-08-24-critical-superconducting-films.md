@@ -7,7 +7,7 @@ year: 2004
 ref: 	"J. Phys. A: Math. Gen. 37 (2004) L447–L452"
 journal: "Journal of Physics A: Mathematical and General"
 doi: 	10.1088/0305-4470/37/36/L01
-pdf: /pdfs/papers/critical-superconducting-films.pdf
+pdf: /assets/pdfs/papers/critical-superconducting-films.pdf
 ---
 
 # Abstract

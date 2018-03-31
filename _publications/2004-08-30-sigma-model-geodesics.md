@@ -7,7 +7,7 @@ year: 2004
 ref: 	Phys. Rev. B 70, 075412 (2004)
 journal: Physical Review B
 doi: 	10.1103/PhysRevB.70.075412
-pdf: /pdfs/papers/sigma-model-geodesics.pdf
+pdf: /assets/pdfs/papers/sigma-model-geodesics.pdf
 ---
 
 # Abstract

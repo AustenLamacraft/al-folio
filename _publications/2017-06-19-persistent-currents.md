@@ -7,7 +7,7 @@ year: 2017
 ref: Phys. Rev. B 95, 224512 (2017)
 journal: Physical Review B
 doi: 10.1103/PhysRevB.95.224512
-pdf: /pdfs/papers/spinor_currents.pdf
+pdf: /assets/pdfs/papers/spinor_currents.pdf
 ---
 
 # Abstract

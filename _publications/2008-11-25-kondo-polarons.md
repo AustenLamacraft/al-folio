@@ -7,7 +7,7 @@ year: 2009
 ref: 	Phys. Rev. Lett. 101, 225301 (2009)
 journal: Physical Review Letters
 doi: 	10.1103/PhysRevLett.101.225301
-pdf: /pdfs/papers/kondo-polarons.pdf
+pdf: /assets/pdfs/papers/kondo-polarons.pdf
 ---
 
 # Abstract

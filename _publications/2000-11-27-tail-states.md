@@ -7,7 +7,7 @@ year: 2000
 ref: 	Phys. Rev. Lett. 85, 4783 (2000)
 journal: Physical Review Letters
 doi: 	10.1103/PhysRevLett.85.4783
-pdf: /pdfs/papers/tail-states.pdf
+pdf: /assets/pdfs/papers/tail-states.pdf
 ---
 
 # Abstract

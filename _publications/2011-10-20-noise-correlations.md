@@ -7,7 +7,7 @@ year: 2011
 ref: 	Phys. Rev. A 84, 043632 (2011)
 journal: Physical Review A
 doi: 	10.1103/PhysRevA.84.043632
-pdf: /pdfs/papers/HBTLL.pdf
+pdf: /assets/pdfs/papers/HBTLL.pdf
 ---
 
 # Abstract

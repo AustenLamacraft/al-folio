@@ -8,7 +8,7 @@ ref: 	Phys. Rev. Lett. 120, 090401 (2018)
 journal: Physical Review Letters
 doi: 10.1103/PhysRevLett.120.090401
 
-pdf: /pdfs/papers/noisy_gaudin_richardson_letter.pdf
+pdf: /assets/pdfs/papers/noisy_gaudin_richardson_letter.pdf
 ---
 
 # Abstract

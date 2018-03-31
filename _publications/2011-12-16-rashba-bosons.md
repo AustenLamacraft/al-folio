@@ -7,7 +7,7 @@ year: 2011
 ref: 	Phys. Rev. A 84, 061604(R) (2011)
 journal: Physical Review A
 doi: 	doi.org/10.1103/PhysRevA.84.061604
-pdf: /pdfs/papers/rashba-bosons.pdf
+pdf: /assets/pdfs/papers/rashba-bosons.pdf
 ---
 
 # Abstract

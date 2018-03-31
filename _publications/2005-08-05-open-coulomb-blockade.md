@@ -7,7 +7,7 @@ year: 2005
 ref: 	Phys. Rev. B 72, 075316 (2005)
 journal: Physical Review B
 doi: 	10.1103/PhysRevB.72.075316
-pdf: /pdfs/papers/open-cb.pdf
+pdf: /assets/pdfs/papers/open-cb.pdf
 ---
 
 # Abstract

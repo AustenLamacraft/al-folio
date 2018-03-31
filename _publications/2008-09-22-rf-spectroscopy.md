@@ -7,7 +7,7 @@ year: 2008
 ref: 	Phys. Rev. A 78, 033614 (2008)
 journal: Physical Review B
 doi: 	10.1103/PhysRevA.78.033614
-pdf: /pdfs/papers/RFpaper18.pdf
+pdf: /assets/pdfs/papers/RFpaper18.pdf
 ---
 
 # Abstract

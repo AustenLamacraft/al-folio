@@ -7,7 +7,7 @@ year: 2011
 ref: 	Phys. Rev. Lett. 106, 140402 (2011)
 journal: Physical Review Letters
 doi: 	10.1103/PhysRevLett.106.140402
-pdf: /pdfs/papers/plrcnddwsim5.pdf
+pdf: /assets/pdfs/papers/plrcnddwsim5.pdf
 ---
 
 # Abstract

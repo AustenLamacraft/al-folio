@@ -7,7 +7,7 @@ year: 2011
 ref: 	Phys. Rev. Lett. 107, 240601 (2011)
 journal: Physical Review Letters
 doi: 	10.1103/PhysRevLett.107.240601
-pdf: /pdfs/papers/heavy_impurity.pdf
+pdf: /assets/pdfs/papers/heavy_impurity.pdf
 ---
 
 # Abstract

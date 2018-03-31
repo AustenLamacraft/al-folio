@@ -7,7 +7,7 @@ year: 2011
 ref: 	Ultracold bosonic and fermionic gases,
 journal: Contemporary Concepts in Condensed Matter Science
 doi: 	
-pdf: /pdfs/papers/NonEqmBehaviour.pdf
+pdf: /assets/pdfs/papers/NonEqmBehaviour.pdf
 ---
 
 # Abstract

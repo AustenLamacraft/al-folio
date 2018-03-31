@@ -7,7 +7,7 @@ year: 2008
 ref: 	Phys. Rev. A 77, 063622 (2008)
 journal: Physical Review A
 doi: 	10.1103/PhysRevA.77.063622
-pdf: /pdfs/papers/spin-dynamics.pdf
+pdf: /assets/pdfs/papers/spin-dynamics.pdf
 ---
 
 # Abstract

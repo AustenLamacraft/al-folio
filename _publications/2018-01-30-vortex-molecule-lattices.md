@@ -8,7 +8,7 @@ ref: 	arXiv:1801.09912
 journal: arXiv
 arxiv: 1801.09912
 doi:
-pdf: /pdfs/papers/molecule_lattice.pdf
+pdf: /assets/pdfs/papers/molecule_lattice.pdf
 ---
 
 # Abstract
