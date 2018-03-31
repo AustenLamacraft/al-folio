@@ -75,7 +75,7 @@ markdown: kramdown
 highlighter: pygments
 
 # Includes
-include: ['_pages']
+include: ['_pages', '_misc']
 
 # Gems
 gems:
