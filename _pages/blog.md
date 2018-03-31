@@ -1,5 +1,6 @@
 ---
 layout: default
+title: minimal working example
 ---
 
 <div class="header-bar">
