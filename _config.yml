@@ -63,6 +63,9 @@ collections:
   publications:
     output: true
     permalink: /publications/:path/
+  demos:
+    output: true
+    permalink: /demos/:path/
 
 news_limit: 5
 
