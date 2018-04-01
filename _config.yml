@@ -10,8 +10,8 @@ footer_text: >
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 
-url:  lamacraft.io
-baseurl:
+url:  https://austenlamacraft.github.io
+baseurl: /mwe
 last_updated: # leave blank if you don't want to display last updated
 
 # -----------------------------------------------------------------------------
@@ -72,7 +72,7 @@ news_limit: 5
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 
 # Includes
 include: ['_pages']
@@ -86,7 +86,7 @@ gems:
 # Jekyll-Scholar
 scholar:
 
-  last_name: Einstein
+  last_name: Lamacraft
 
   style: apa
   locale: en
