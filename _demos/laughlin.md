@@ -1,4 +1,5 @@
 ---
+title: Laughlin state
 layout: demo
 code: /assets/js/demos/laughlin.js
 image: /assets/images/demos/laughlin.png

@@ -1,12 +1,15 @@
 // Simulation of Laughlin state
 
+var width = 100;
+var height = 100;
+
 var particlesQ = 1024;
 var slider;
 var c = 100;
 
 var beta = 20;
 var step = 0.1;
-var gamma = beta * step**2 / 8;
+var gamma = beta * step**2 / 4;
 
 var radius = 100
 
@@ -17,20 +20,22 @@ var vy = new Array(particlesQ);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	var canvas = createCanvas(width, height);
+	// Move the canvas so it’s inside our <div id="sketch-holder">.
+  canvas.parent('sketch-holder');
 	noStroke();
 
 	fill('#A3C1AD');
-
 
 	// slider = createSlider(0, 0.000005, 0.0000025, 0);
 	// slider.position(0, height - 32);
 	// slider.style('width', width - 8 + 'px');
 
 	for (var a = 0; a < c; a++) {
-		x[a] = random(0,windowWidth);
-		y[a] = random(0,windowHeight);
+		x[a] = random(0,width);
+		y[a] = random(0,height);
 		vx[a] = 0;
 		vy[a] = 0;
 	}
@@ -61,10 +66,10 @@ function draw() {
 			}
 		}
 
-		var d = sqrt((x[a] - windowWidth / 2)**2 + (y[a] - windowHeight / 2)**2);
+		var d = sqrt((x[a] - width / 2)**2 + (y[a] - height / 2)**2);
 		if (d < 1) d = 1;
-    ax +=  - 5 * (x[a] - windowWidth / 2) / radius;
-    ay +=  - 5 * (y[a] - windowHeight / 2) / radius;
+    ax +=  - 5 * (x[a] - width / 2) / radius;
+    ay +=  - 5 * (y[a] - height / 2) / radius;
 
 		vx[a] = vx[a] * exp(-gamma) + ax + step * randomGaussian();
 		vy[a] = vy[a] * exp(-gamma) + ay + step * randomGaussian();
@@ -89,8 +94,8 @@ function draw() {
 
 function addNewParticle() {
 	if (mouseY < height - 50) {
-		x[c] = mouseX;//random(0,windowWidth); //mouseX;
-		y[c] = mouseY;//random(0,windowHeight); //mouseY;
+		x[c] = mouseX;//random(0,width); //mouseX;
+		y[c] = mouseY;//random(0,height); //mouseY;
 		vx[c] = 0;
 		vy[c] = 0;
 
