@@ -1,13 +1,7 @@
 ---
+layout: demo
+code: /assets/js/demos/laughlin.js
+image: /assets/images/demos/laughlin.png
 ---
-<html>
-  <head>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
 
-    <script src="p5/p5.min.js"></script>
-    <script src="{{ site.baseurl }}/assets/js/demos/laughlin.js"></script>
-    <style> body {padding: 0; margin: 0;} </style>
-  </head>
-  <body>
-  </body>
-</html>
+Here's a simulation of a Laughlin state
