@@ -8,10 +8,17 @@ layout: default
     <h5 class="post-description">{{ page.description }}</h5>
     <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
     <script src="{{ site.baseurl }}{{ page.code }}"></script>
+
+    <style>
+      .demo-center {
+        margin: 0 auto;
+        width: 100px; 
+      }
+    </style>
   </header>
 
   <article class="post-content {{page.title}} clearfix">
-    <div id="sketch-holder">
+    <div id="sketch-holder" class="demo-center">
       <!-- demo will go here! -->
     </div>
     {{ content }}

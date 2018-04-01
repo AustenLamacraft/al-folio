@@ -1,17 +1,14 @@
 // Simulation of Laughlin state
 
-var width = 100;
-var height = 100;
-
 var particlesQ = 1024;
 var slider;
-var c = 100;
+var c = 200;
 
 var beta = 20;
 var step = 0.1;
 var gamma = beta * step**2 / 4;
 
-var radius = 100
+var radius = 200
 
 var x = new Array(particlesQ);
 var y = new Array(particlesQ);
@@ -22,9 +19,9 @@ var vy = new Array(particlesQ);
 
 
 function setup() {
-	var canvas = createCanvas(width, height);
+	var canvas = createCanvas(200, 200);
 	// Move the canvas so it’s inside our <div id="sketch-holder">.
-  canvas.parent('sketch-holder');
+	canvas.parent('sketch-holder');
 	noStroke();
 
 	fill('#A3C1AD');
