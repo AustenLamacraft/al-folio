@@ -31,7 +31,7 @@ $$
 
 This is the __kernel trick__ widely used in __variational autoencoders__. Of course, the downside is that the distribution $q(\mathbf{x})$ is just a Gaussian.
 
-One route to more complicated distributions is provided by __Real NVP__ (for _real non-volume preserving transformation_: it's already implemented in TensorFlow!). This involves partitioning the inputs into two groups $\mathbf{z}=\mathbf{z}_< \cup \mathbf{z}_>$, with corresponding outputs $\mathbf{x}=\mathbf{x}_< \cup \mathbf{x}_>$
+One route to more complicated distributions is provided by __Real NVP__ (for _real non-volume preserving transformation_: it's already implemented in TensorFlow!). This involves partitioning the inputs into two groups $\mathbf{z}=\mathbf{z}\_< \cup \mathbf{z}\_>$, with corresponding outputs $\mathbf{x}=\mathbf{x}_< \cup \mathbf{x}_>$
 
 $$
 \mathbf{x}_< = \mathbf{z}_<\\
@@ -104,7 +104,7 @@ The difference between the two schemes is the scaling function $e^{s()}$, which 
 
 ## Generative Modelling as a Control Problem
 
-When we simulate an autonomous (time-independent) system, the maps applied are the same at each time step. Our goal is different -- we care only about the distribution we end up with -- so there is no need for the $T(\mathbf{p})$ and $V(\mathbf{q})$ to be the same at each step. This has the flavour of a control problem: how to best sculpt one distribution into another. 
+When we simulate an autonomous (time-independent) system, the maps applied are the same at each time step. Our goal is different -- we care only about the distribution we end up with -- so there is no need for the $T(\mathbf{p})$ and $V(\mathbf{q})$ to be the same at each step. This has the flavour of a control problem: how to best sculpt one distribution into another?
 
 {% cite Salimans:2015aa %}
 
@@ -117,4 +117,4 @@ Further reading
 References
 ----------
 
-{% bibliography --cited %}
+{% bibliography --cited --file blog %}

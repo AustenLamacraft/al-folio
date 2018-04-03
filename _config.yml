@@ -75,6 +75,7 @@ news_limit: 5
 
 # Build settings
 markdown: kramdown
+math_engine: nil  # for katex (because kramdown defaults to mathjax)
 highlighter: rouge
 
 # Includes
@@ -98,7 +99,7 @@ scholar:
   order: descending
 
   source: /_bibliography/
-  bibliography: papers.bib
+  bibliography: blog.bib
   bibliography_template: bib
 
   replace_strings: true

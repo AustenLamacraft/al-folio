@@ -8,8 +8,23 @@
 <!-- Load KaTeX -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/{{ site.katex_version }}/katex.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/{{ site.katex_version }}/katex.min.js"></script>
-<script src="{{ '/assets/js/katex.js' | prepend: site.baseurl | prepend: site.url }}"></script>
-{% endif %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/{{ site.katex_version }}/contrib/auto-render.min.js" integrity="sha384-IiI65aU9ZYub2MY9zhtKd1H2ps7xxf+eb2YFG9lX6uRqpXCvBTOidPRCXCrQ++Uc" crossorigin="anonymous"></script>
+<script>
+renderMathInElement(
+        document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        }
+    );
+</script>
+
+<!-- <script src="{{ '/assets/js/katex.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+{% endif %} -->
 
 {% if site.enable_anchorjs %}
 <!-- Load Anchor JS -->
