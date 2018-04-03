@@ -8,6 +8,15 @@
 <!-- Load KaTeX -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/{{ site.katex_version }}/katex.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/{{ site.katex_version }}/katex.min.js"></script>
+
+<!--
+This script is required because the github-pages gem does not allow MathJax to be turned off in kramdown, so $$...$$ gets turned into <script type='math/tex'>...</script>
+
+Hopefully it will shortly be possible to turn it off
+https://github.com/github/pages-gem/pull/545
+-->
+<script src="{{ '/assets/js/katex.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/{{ site.katex_version }}/contrib/auto-render.min.js" integrity="sha384-IiI65aU9ZYub2MY9zhtKd1H2ps7xxf+eb2YFG9lX6uRqpXCvBTOidPRCXCrQ++Uc" crossorigin="anonymous"></script>
 <script>
 renderMathInElement(
@@ -15,16 +24,13 @@ renderMathInElement(
         {
             delimiters: [
                 {left: "$$", right: "$$", display: true},
-                {left: "\\[", right: "\\]", display: true},
-                {left: "$", right: "$", display: false},
-                {left: "\\(", right: "\\)", display: false}
+                {left: "$", right: "$", display: false}
             ]
         }
     );
 </script>
+{% endif %}
 
-<!-- <script src="{{ '/assets/js/katex.js' | prepend: site.baseurl | prepend: site.url }}"></script>
-{% endif %} -->
 
 {% if site.enable_anchorjs %}
 <!-- Load Anchor JS -->

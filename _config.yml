@@ -75,7 +75,8 @@ news_limit: 5
 
 # Build settings
 markdown: kramdown
-math_engine: nil  # for katex (because kramdown defaults to mathjax)
+kramdown:
+  math_engine: nil  # for katex (because kramdown defaults to mathjax)
 highlighter: rouge
 
 # Includes
