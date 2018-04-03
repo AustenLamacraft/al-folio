@@ -18,4 +18,4 @@ The same goes for machine learning.
 NeuralRG proposed by Li and Wang
 
 
-![](/images/blog/neuralrg.png)
+![](/assets/images/blog/neuralrg.png)
