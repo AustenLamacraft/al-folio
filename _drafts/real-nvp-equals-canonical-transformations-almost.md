@@ -29,13 +29,15 @@ $$
 \mathbf{K} = \mathbf{A}\mathbf{A}^T.
 $$
 
-This is the __kernel trick__ widely used in __variational autoencoders__. Of course, the downside is that the distribution $q(\mathbf{x})$ is just a Gaussian.
+This is the __kernel trick__ widely used in [variational autoencoders](https://en.wikipedia.org/wiki/Hamiltonian_mechanics). Of course, the downside is that the distribution $q(\mathbf{x})$ is just a Gaussian.
 
-One route to more complicated distributions is provided by __Real NVP__ (for _real non-volume preserving transformation_: it's already implemented in TensorFlow!). This involves partitioning the inputs into two groups $\mathbf{z}=\mathbf{z}_1 \cup \mathbf{z}_2$, with corresponding outputs $\mathbf{x}=\mathbf{x}_1 \cup \mathbf{x}_2$
+One route to more complicated distributions is provided by __real NVP__, {% cite Dinh:2016aa %} --  _real-valued non-volume preserving_ -- transformations. This involves partitioning the inputs into two groups $\mathbf{z}=\mathbf{z}_1 \cup \mathbf{z}_2$, with corresponding outputs $\mathbf{x}=\mathbf{x}_1 \cup \mathbf{x}_2$
 
 $$
-\mathbf{x}_1 = \mathbf{z}_2\qquad
+\begin{aligned}
+\mathbf{x}_1 = \mathbf{z}_1\\
 \mathbf{x}_2 = \mathbf{z}_2 \odot e^{s(\mathbf{z}_2)} + t(\mathbf{z}_2).
+\end{aligned}
 $$
 
 In practice the mappings $s$ and $t$ will be parameterized by neural networks.
@@ -43,21 +45,22 @@ In practice the mappings $s$ and $t$ will be parameterized by neural networks.
 It's straightforward to check that the Jacobian matrix is triangular, which means that the computation of the determinant is trivial, and yields
 
 $$
-\log\left|\det\left(\frac{\partial \mathbf{x}}{\partial \mathbf{z}}\right)\right|=\sum_i s(\mathbf{z}\_1)\_i.
+\log\left|\det\left(\frac{\partial \mathbf{x}}{\partial \mathbf{z}}\right)\right|=\sum_i s(\mathbf{z}_1)_i.
 $$
 
 The $\mathbf{x}_1$ variables can be updated in the next step, and more complicated mappings can be formed by composition, with the log-Jacobian being given by the sum of contributions for each map.
 
+Real NVP is [already implemented in TensorFlow!](https://www.tensorflow.org/versions/master/api_docs/python/tf/contrib/distributions/bijectors/RealNVP)
+
 ## Canonical Transformations
 
-It turns out that real NVP formulation is closely related to __canonical__ (or __symplectic__) transformations in classical mechanics. Recall Hamilton's equations for the motion of a system described by a point $(\mathbf{q}(t), \mathbf{p}(t))$ in phase space
+It turns out that real NVP formulation is closely related to [canonical transformations](https://en.wikipedia.org/wiki/Canonical_transformation) in classical mechanics. Recall [Hamilton's equations](https://en.wikipedia.org/wiki/Hamiltonian_mechanics) for the motion of a system described by a point $(\mathbf{q}(t), \mathbf{p}(t))$ in phase space
 
 $$
-\dot{\mathbf{q}} = \frac{\partial H}{\partial \mathbf{p}}
-$$
-
-$$
+\begin{aligned}
+\dot{\mathbf{q}} = \frac{\partial H}{\partial \mathbf{p}}\\
 \dot{\mathbf{p}} = -\frac{\partial H}{\partial \mathbf{q}},
+\end{aligned}
 $$
 
 where $H(\mathbf{q}, \mathbf{p})$ is the __Hamiltonian__. One can view the time evolution as a one-parameter family of diffeomorphisms from the present into the future. These maps have the property that they preserve the canonical form
@@ -66,18 +69,17 @@ $$
 \omega = \sum_{i=1}^N dp^i\wedge dq^i.
 $$
 
-Such maps are called __canonical transformations__, or __symplectomorphisms__. Note that $\overbrace{\omega \wedge \omega \cdots \omega}^{N\text{ times}}$ is the volume form, so being canonical is more than being volume preserving (if $N21$).
+Such maps are called [canonical transformations](https://en.wikipedia.org/wiki/Canonical_transformation), or [symplectomorphisms](https://en.wikipedia.org/wiki/Symplectomorphism). Note that $\overbrace{\omega \wedge \omega \cdots \omega}^{N\text{ times}}$ is the volume form, so being canonical is more than being volume preserving (if $N>1$).
 
 When numerically integrating Hamilton's equations it is desirable to use a scheme that retains the symplectic property. This is because one can regard the discrete values $(\mathbf{q}_i, \mathbf{p}_i)$ arising during integration as samples from the exact time evolution of a __shadow Hamiltonian__ (nothing sinister, just hard to find explicitly). Simulating a slighly different Hamiltonian exactly means that values of quantities that should be conserved (the energy, at least) tend to fluctuate around the exact value instead of wandering off.
 
-Integration schemes that preserve the symplectic property are called __symplectic integrators__. The simplest example is provided by the __symplectic Euler__ method with timestep $\tau$
+Integration schemes that preserve the symplectic property are called [symplectic integrators](https://en.wikipedia.org/wiki/Symplectic_integrator). The simplest example is provided by the [symplectic Euler](https://en.wikipedia.org/wiki/Semi-implicit_Euler_method) method with timestep $\tau$
 
 $$
-p_{n+1} = p_n - \tau \nabla_q H(p_{n+1}, q_n)
-$$
-
-$$
+\begin{aligned}
+p_{n+1} = p_n - \tau \nabla_q H(p_{n+1}, q_n)\\
 q_{n+1} = q_n + \tau \nabla_p H(p_{n+1}, q_n).
+\end{aligned}
 $$
 
 As written this is an __implicit__ scheme, meaning that the values at time $n+1$ appear on the right hand side. However, if the Hamiltonian has separable form
@@ -106,7 +108,7 @@ $$
 \mathbf{q}_{n+1} \sim \mathbf{x}_1,\qquad \mathbf{p}_{n+1} \sim \mathbf{x}_2\\
 $$
 
-The difference between the two schemes is the scaling function $e^{s()}$, which is the reason for the scheme being non-volume preserving rather than symplectic. Without the scaling, the method goes by the name NICE.
+The difference between the two schemes is the scaling function $e^{s()}$, which is the reason for the scheme being non-volume preserving rather than symplectic. Without the scaling, the method goes by the name NICE {% cite Dinh:2014aa %}.
 
 
 
