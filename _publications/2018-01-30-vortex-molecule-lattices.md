@@ -4,10 +4,10 @@ title: Infinite Lattices of Vortex Molecules in Rabi-Coupled Condensates
 image: /assets/images/papers/vortex-molecules.png
 authors: B. Mencia Uranga, Austen Lamacraft
 year: 2018
-ref: 	arXiv:1801.09912
-journal: arXiv
+ref: 	Phys. Rev. A 97, 043609 (2018)
+journal: Physical Review B
 arxiv: 1801.09912
-doi:
+doi: 10.1103/PhysRevA.97.043609
 pdf: /assets/pdfs/papers/molecule_lattice.pdf
 ---
 
