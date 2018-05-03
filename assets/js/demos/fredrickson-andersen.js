@@ -45,7 +45,7 @@ function mousePressed() {
 
 
 
-// Fill board randomly
+// Board is empty excep for 1 in the middle
 function init() {
   for (var i = 0; i < columns; i++) {
     for (var j = 0; j < rows; j++) {
@@ -74,7 +74,7 @@ function generate() {
       // we added it in the above loop
       neighbors -= board[x][y];
 
-      if (neighbors >  0) next[x][y] = (Math.random() >= 0.5);           // FA update
+      if (neighbors >  0) next[x][y] = (Math.random() >= 0.5); // FA update
     }
   }
 
