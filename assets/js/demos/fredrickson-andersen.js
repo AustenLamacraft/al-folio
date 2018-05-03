@@ -73,8 +73,8 @@ function generate() {
       // A little trick to subtract the current cell's state since
       // we added it in the above loop
       neighbors -= board[x][y];
-      // Rules of Life
-      if      (neighbors >  0) next[x][y] = (Math.random() >= 0.5);           // FA update
+
+      if (neighbors >  0) next[x][y] = (Math.random() >= 0.5);           // FA update
     }
   }
 
@@ -82,4 +82,8 @@ function generate() {
   var temp = board;
   board = next;
   next = temp;
+
+  if (board[1][1] == 1) {
+    init();
+  }
 }
