@@ -1,5 +1,6 @@
 ---
 layout: cv
+exclude: true
 ---
 
 # Austen Lamacraft
