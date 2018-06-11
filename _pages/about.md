@@ -17,6 +17,6 @@ news: true
 social: true
 ---
 
-I'm a theoretical condensed matter physicist. 
+I'm a theoretical condensed matter physicist. For an idea my general research area, try [this description]({{ site.baseurl }}{% link _posts/2018-04-27-minimal-working-examples.md %}) from my recent fourth year course.
 
 [My CV]({{ site.baseurl }}{% link misc/cv.md %})
