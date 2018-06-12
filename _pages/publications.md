@@ -2,8 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: a gallery of <a href="https://www.tcm.phy.cam.ac.uk/">publications</a>
-years: [1956, 1950, 1935, 1905]
+description: a gallery of publications
 ---
 
 <ul class="paper-list">

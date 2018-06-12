@@ -65,6 +65,9 @@ collections:
   demos:
     output: true
     permalink: /demos/:path/
+  talks:
+    output: true
+    permalin: /talks/:path/
 
 news_limit: 5
 
