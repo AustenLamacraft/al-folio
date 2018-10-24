@@ -4,9 +4,9 @@ title: Phases of quantum dimers from ensembles of classical stochastic trajector
 image: /assets/images/papers/stochastic-dimers.png
 authors: Tom Oakes, Stephen Powell, Claudio Castelnovo, Austen Lamacraft, Juan P. Garrahan
 year: 2018
-ref: 	arXiv:1802.09576
-journal: arXiv
-doi:
+ref: 	Phys. Rev. B 98, 064302 (2018)
+journal: Physical Review B
+doi: 10.1103/PhysRevB.98.064302
 pdf: /assets/pdfs/papers/stochastic-dimers.pdf
 arxiv: 1802.09576
 ---

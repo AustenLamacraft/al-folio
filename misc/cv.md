@@ -25,6 +25,8 @@ __University of Cambridge__ Reader in Theoretical Physics, Department of Physics
 `2017-`
 __GTN Ltd__ Advisor to startup disrupting drug discovery with a combination of Machine Learning and Quantum Mechanics.
 
+`2018-`
+__Spotify__ Independent contractor, researching machine learning models for audio.
 
 ## Recent Projects
 
