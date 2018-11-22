@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Normalizing Flows and Canonical Transformations</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/blotter.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body);
+  });</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />
+  <script type="text/javascript" src="js/p5.min.js"></script>
+  <script type="text/javascript" src="js/fredrickson-andersen.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Normalizing Flows and Canonical Transformations</h1>
+</section>
+
+<section id="normalizing-flows-and-canonical-transformations" class="slide level2">
+<h2>Normalizing Flows and Canonical Transformations</h2>
+<p>Austen Lamacraft and Roberto Bondesan</p>
+</section>
+<section class="slide level2">
+
+<h3 id="how-do-we-choose-the-right-variables">How do we choose the right variables?</h3>
+<p><img data-src="assets/canonical-flows-9057bab0.png" /></p>
+</section>
+<section class="slide level2">
+
+<h3 id="outline">Outline</h3>
+<ul>
+<li><p>Normalizing Flows</p></li>
+<li><p>Learning Canonical Transformations</p></li>
+<li><p>Application: Integrable Models</p></li>
+</ul>
+</section>
+<section><section id="normalizing-flows" class="title-slide slide level1"><h1>Normalizing Flows</h1></section><section class="slide level2">
+
+<h3 id="generative-models">Generative Models</h3>
+<p>Sample from a multivariate distribution</p>
+<p><img data-src="assets/canonical-flows-e23ca333.png" /></p>
+</section><section class="slide level2">
+
+<h3 id="default-approach-in-physics">Default approach in physics</h3>
+<p><span class="math display">\[
+P(\{\sigma_i\}) = Z^{-1} \exp\left(-\beta\sum_{i,j}J_{ij}\sigma_i\sigma_j\right)
+\]</span></p>
+<p>Use MCMC to sample from distribution, calculate expectations, etc.</p>
+<p><img data-src="assets/ising.png" /></p>
+</section><section class="slide level2">
+
+<h3 id="the-idea-rezende-mohamed-2015">The Idea (Rezende &amp; Mohamed, 2015)</h3>
+<ul>
+<li>Given bijection <span class="math inline">\(\mathbf{f}:\mathbf{x}\longrightarrow\mathbf{z}\)</span> we have <span class="math display">\[
+p_\mathbf{X}(\mathbf{x}) = p_{\mathbf{Z}}(f(\mathbf{x}))\left|\frac{\partial \mathbf{f}}{\partial \mathbf{x}}\right|
+\]</span></li>
+<li>Rich <span class="math inline">\(\mathbf{f}\)</span> can yield complex <span class="math inline">\(p_\mathbf{X}\)</span> from simple <span class="math inline">\(p_{\mathbf{Z}}\)</span> (e.g. Gaussian)</li>
+<li>Parameterize <span class="math inline">\(\mathbf{f}\)</span> with (deep) neural network</li>
+<li>Compose many bijectors <span class="math inline">\(\mathbf{f}_L\circ \mathbf{f}_{L-1}\cdots \circ \mathbf{f}_1\)</span></li>
+<li>Train by maximizing log-likelihood of data</li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="application-1-generation">Application 1: Generation</h3>
+<ul>
+<li>Sample: <span class="math inline">\(\mathbf{x}=\mathbf{f}^{-1}(\mathbf{z})\)</span> for <span class="math inline">\(\mathbf{z}\sim p_{\mathbf{Z}}\)</span> (requires invertible <span class="math inline">\(\mathbf{f}\)</span>)</li>
+</ul>
+<p align="center">
+<video data-autoplay class="stretch" data-src="assets/glow-movie.mp4" width="400">
+</video>
+</p>
+<ul>
+<li><strong>Glow</strong>, Diederik P. Kingma, Prafulla Dhariwal, arXiv:1807.03039</li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="application-2-density-estimation">Application 2: Density Estimation</h3>
+<ul>
+<li>Given <span class="math inline">\(\mathbf{x}\)</span> find <span class="math inline">\(\log p_X(\mathbf{x})\)</span></li>
+</ul>
+<p align="center">
+<img src="assets/notMNIST.png">
+</p>
+<ul>
+<li>Hyunsun Choi &amp; Eric Jang, arXiv:1810.01392</li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="the-challenge">The Challenge</h3>
+<p><span class="math display">\[
+p_\mathbf{X}(\mathbf{x}) = p_{\mathbf{Z}}(f(\mathbf{x}))\left|\frac{\partial \mathbf{f}}{\partial \mathbf{x}}\right|
+\]</span></p>
+<ul>
+<li>For <span class="math inline">\(\mathbf{x},\mathbf{x}\in\mathcal{R}^D\)</span> computation of determinant is <span class="math inline">\(O(D^3)\)</span></li>
+<li>Prohibitive for training of large models.</li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="two-solutions">Two Solutions</h3>
+<ol type="1">
+<li>Choose <span class="math inline">\(\mathbf{f}_j\)</span> to have tractable jacobian</li>
+<li><em>Continuous</em> limit</li>
+</ol>
+<span class="math display">\[
+\mathbf{f}(\mathbf{x}) = \mathbf{x}+\epsilon \mathbf{g}(\mathbf{x})
+\]</span> <span class="math display">\[
+\left|\frac{\partial \mathbf{f}}{\partial \mathbf{x}}\right|\sim 1 +\epsilon \textrm{tr}\left[\frac{\partial \mathbf{g}}{\partial \mathbf{x}}\right]
+\]</span>
+<div style="text-align: right">
+(Chen <em>et al.</em>, arXiv:1806.07366)
+</div>
+<ul>
+<li>Let’s look at some examples of the first approach</li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="example-1-real-nvp-dinh-et-al-2016">Example 1: Real NVP (Dinh <em>et al</em>, 2016)</h3>
+<ul>
+<li>Divide the variables <span class="math inline">\(\mathbf{x}\)</span> into two groups <span class="math inline">\(x_{1:d}\)</span> and <span class="math inline">\(x_{d+1:D}\)</span></li>
+</ul>
+<p><span class="math display">\[
+z_j = x_j e^{\alpha_j(x_{d+1:D})} + \mu_j(x_{d+1:D}), \qquad j=1,\ldots, d
+\]</span> <span class="math display">\[
+z_j = x_j \qquad j=d+1,\ldots, D
+\]</span> <span class="math display">\[
+\left|\frac{\partial \mathbf{f}}{\partial \mathbf{x}}\right| = \prod_{j=1}^d e^{\alpha_i(x_{d+1:D})}
+\]</span></p>
+<ul>
+<li>Parameterize <strong>scale</strong> <span class="math inline">\(e^{\alpha_j(x_{d+1:D})}\)</span> and <strong>shift</strong> <span class="math inline">\(\mu_j(x_{d+1:D})\)</span> by NN</li>
+<li>Compose many bijections
+<ol type="1">
+<li>Alternating between two sets of variables, or</li>
+<li>Linear orthogonal transformations (c.f. Glow)</li>
+</ol></li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="example-2-autoregressive-models">Example 2: Autoregressive models</h3>
+<ul>
+<li>Exploit <strong>chain rule</strong> of probability: <span class="math inline">\(p(\mathbf{x}) = \prod_j p(x_j|x_{1:x_{j-1}})\)</span></li>
+</ul>
+<p><span class="math display">\[
+x_j = z_j e^{\alpha_j(x_{1:j-1})} + \mu_j(x_{1:j-1})
+\]</span></p>
+<p align="center">
+<img src="assets/autoregressive.png" >
+</p>
+<ul>
+<li>See <a href="https://blog.evjang.com/2018/01/nf1.html">Eric Jang’s blog posts</a></li>
+</ul>
+</section><section class="slide level2">
+
+</section></section>
+<section><section id="canonical-transformations" class="title-slide slide level1"><h1>Canonical Transformations</h1></section><section class="slide level2">
+
+<h3 id="canonical-transformations-1">Canonical Transformations</h3>
+<ul>
+<li>For <span class="math inline">\((\mathbf{q}, \mathbf{p})\in\mathbb{R}^{2N}\)</span>, <span class="math inline">\(\mathbf{f}:\mathbb{R}^{2N}\longrightarrow \mathbb{R}^{2N}\)</span> is canonical if</li>
+</ul>
+<p><span class="math display">\[
+\{q&#39;_j,p&#39;_k\} = \sum_{l=1}^N \left(\frac{\partial p&#39;_k}{\partial p_l}\frac{\partial q&#39;_j}{\partial q_l}-\frac{\partial q&#39;_k}{\partial p_l}\frac{\partial p&#39;_j}{\partial q_l}\right) = \delta_{jk}
+\]</span> <span class="math display">\[
+\{q&#39;_j,q&#39;_k\} = \{p&#39;_j,p&#39;_k\} = 0
+\]</span></p>
+<ul>
+<li>Preserves the form of Hamilton’s equations</li>
+</ul>
+<p><span class="math display">\[
+\dot q_j = \frac{\partial H}{\partial p_j},\qquad \dot p_j = -\frac{\partial H}{\partial q_j}
+\]</span></p>
+</section><section class="slide level2">
+
+<h3 id="example-1-mathbffqplongrightarrow-qpin-mathbbr2">Example 1: <span class="math inline">\(\mathbf{f}:(q,p)\longrightarrow (q&#39;,p&#39;)\in \mathbb{R}^2\)</span></h3>
+<ul>
+<li>For <span class="math inline">\(N=1\)</span> only require unit jacobian determinant</li>
+</ul>
+<p align="center">
+<img src="assets/canonical-flows-6ea3e833.png" width=200>
+</p>
+<p><span class="math display">\[
+\frac{\partial p&#39;}{\partial p}\frac{\partial q&#39;}{\partial q}-\frac{\partial q&#39;}{\partial p}\frac{\partial p&#39;}{\partial q} = 1
+\]</span></p>
+<ul>
+<li>e.g. linear canonical transformation (stretches, rotations, shears)</li>
+</ul>
+<p><span class="math display">\[
+\begin{pmatrix}
+q&#39;\\
+p&#39;
+\end{pmatrix}=
+S\begin{pmatrix}
+q\\
+p
+\end{pmatrix},\qquad S\in SL(2,\mathbf{R})
+\]</span></p>
+</section><section class="slide level2">
+
+<h3 id="example-2-type-2-canonical-transformation">Example 2: ‘Type 2’ canonical transformation</h3>
+<ul>
+<li><span class="math inline">\(N&gt;1\)</span> preserve area in all <span class="math inline">\((q_j,p_j)\)</span> planes (generalizes Liouville’s theorem)</li>
+</ul>
+<p><span class="math display">\[
+\mathbf{q}&#39;=\mathbf{q}, \qquad
+\mathbf{p}&#39;=\mathbf{p}-\nabla F(\mathbf{q})
+\]</span></p>
+<ul>
+<li>c.f. real NVP</li>
+</ul>
+<p><span class="math display">\[
+z_j = x_j e^{\alpha_j(x_{d+1:D})} + \mu_j(x_{d+1:D}), \qquad j=1,\ldots, d
+\]</span></p>
+<ul>
+<li><strong>Differences</strong>:
+<ol type="1">
+<li>Shift is a gradient <span class="math inline">\(\mu=-\nabla F\)</span></li>
+<li>No scale (‘NICE’)</li>
+</ol></li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="parameterizing-shift">Parameterizing shift</h3>
+<ul>
+<li><p>Two options</p>
+<ol type="1">
+<li><p><span class="math inline">\(F(\mathbf{q})\sim \text{NN}\)</span> and get <span class="math inline">\(\nabla F(\mathbf{q})\)</span> from autodifferentiation</p></li>
+<li><p><strong>Irrotational NICE</strong>: <span class="math inline">\(\partial_j \mu_k = \partial_k \mu_j\)</span> if</p></li>
+</ol></li>
+</ul>
+<p><span class="math display">\[
+\mu(\mathbf{q}) = W_1^T\sigma(W_2 \sigma(W_1\mathbf{q})), \qquad W_2 \text{ diagonal}
+\]</span></p>
+</section><section class="slide level2">
+
+<h3 id="more-complicated-transformations">More complicated transformations</h3>
+<p>Stack together</p>
+<ol type="1">
+<li>Linear CT</li>
+</ol>
+<p><span class="math display">\[
+\begin{pmatrix}
+q&#39;\\
+p&#39;
+\end{pmatrix}=
+S\begin{pmatrix}
+q\\
+p
+\end{pmatrix},\qquad S\in SL(2,\mathbf{R})
+\]</span></p>
+<ol start="2" type="1">
+<li>Type 2 CT</li>
+</ol>
+<p><span class="math display">\[
+\mathbf{q}&#39;=\mathbf{q}, \qquad
+\mathbf{p}&#39;=\mathbf{p}+\mu(\mathbf{q}), \qquad \mu(\mathbf{q}) \text{ irrotational}
+\]</span></p>
+<ol start="3" type="1">
+<li>Symplectic exchange</li>
+</ol>
+<p><span class="math display">\[
+\begin{pmatrix}
+q&#39;\\
+p&#39;
+\end{pmatrix}=
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}\begin{pmatrix}
+q\\
+p
+\end{pmatrix}
+\]</span></p>
+</section><section class="slide level2">
+
+<h3 id="visualize-bijectors">Visualize bijectors</h3>
+<p align="center">
+<img src="assets/layers1.png" width=700> <img src="assets/layers2.png" width=700>
+</p>
+</section><section class="slide level2">
+
+</section></section>
+<section><section id="application-near--integrable-models" class="title-slide slide level1"><h1>Application: (near-) Integrable Models</h1></section><section class="slide level2">
+
+<h3 id="liouville-arnold-theorem">Liouville-Arnold Theorem</h3>
+<ul>
+<li><p><strong>Integrable</strong> means <span class="math inline">\(N\)</span> conserved quantities <span class="math inline">\(I_j\)</span> with <span class="math inline">\(\{I_j,I_k\}=0\)</span></p></li>
+<li><p>Submanifold of phase space at fixed <span class="math inline">\(\left\{I_{i}\right\}\)</span> is <span class="math inline">\(N\)</span>-Torus <span class="math inline">\(\mathbb{T}^{N}\)</span></p></li>
+</ul>
+<p align="center">
+<img src="assets/torus_fields.png" width=500>
+</p>
+<ul>
+<li>Conjugate variables <span class="math inline">\(\phi_{i}\)</span> satisfy <span class="math inline">\(\phi_{j}=\omega_j t+\phi_{i,0}\)</span> with <span class="math inline">\(\omega_j=\frac{\partial H}{\partial I_{j}}\)</span></li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="loss-function">Loss function</h3>
+<ul>
+<li>Seek a transformation to variables <span class="math inline">\(q&#39;_\alpha\)</span>, <span class="math inline">\(p&#39;_\alpha\)</span> with constant radial coordinate</li>
+</ul>
+<p><span class="math display">\[
+\rho_\alpha = \sqrt{{q&#39;_\alpha}^2 + {p&#39;_\alpha}^2}
+\]</span></p>
+<ul>
+<li>That is</li>
+</ul>
+<p><span class="math display">\[
+q_\alpha \dot q_\alpha +\pi_\alpha \dot \pi_\alpha=q_\alpha \frac{\partial H&#39;}{\partial \pi_\alpha}-\pi_\alpha \frac{\partial H&#39;}{\partial q_\alpha}=0,
+\]</span></p>
+<div style="text-align: right">
+<span class="math inline">\(H&#39;(q,\pi)\equiv H(x(q,\pi), p(q,\pi))\)</span>
+</div>
+<ul>
+<li>Suggests the loss function</li>
+</ul>
+<p><span class="math display">\[
+\ell(q,\pi) = \sum_\alpha \left(q_\alpha \frac{\partial H&#39;}{\partial \pi_\alpha}-\pi_\alpha \frac{\partial H&#39;}{\partial q_\alpha}\right)^2
+\]</span></p>
+</section><section class="slide level2">
+
+<h3 id="example-neumann-hamiltonian">Example: Neumann Hamiltonian</h3>
+<p><span class="math display">\[
+H = \frac{1}{4}\sum_{\alpha,\beta} J_{\alpha\beta}^2 + \frac{1}{2}\sum_\alpha k_\alpha x_\alpha^2
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(J_\alpha\beta = x_\alpha p_\beta - x_\beta p_\alpha\)</span> (generalized) angular momentum</p></li>
+<li><p>Constants of Motion</p></li>
+</ul>
+<p><span class="math display">\[
+I_\alpha = x_\alpha^2 + \sum_{\beta\neq \alpha} \frac{J_{\alpha\beta}^2}{k_\alpha-k_\beta}
+\]</span> <span class="math display">\[
+H = \frac{1}{2}\sum_\alpha k_\alpha I_\alpha, \qquad \sum_\alpha x_\alpha^2 = \sum_\alpha I_\alpha
+\]</span></p>
+</section><section class="slide level2">
+
+<h3 id="neumann-trajectories-for-n3">Neumann Trajectories for <span class="math inline">\(N=3\)</span></h3>
+<ul>
+<li>Motion is confined to the sphere <span class="math inline">\(S^{N-1}\)</span></li>
+</ul>
+<p align="center">
+<img src="assets/neumann_traj.png" width=500>
+</p>
+</section><section class="slide level2">
+
+<h3 id="learnt-representation-for-n3">Learnt Representation for <span class="math inline">\(N=3\)</span></h3>
+<p><img data-src="assets/canonical-flows-aa895184.png" /></p>
+</section><section class="slide level2">
+
+<h3 id="toy-example-nonlinear-oscillator">Toy Example: Nonlinear oscillator</h3>
+<p><span class="math display">\[
+  H(q,p) =
+  \tfrac{1}{8}p^2 + \tfrac{1}{2}(q - \tfrac{1}{4}p^2)^2
+  =
+  \tfrac{1}{2}q^2  - \tfrac{1}{4}q p^2 + \tfrac{1}{32}p^2(1+p^2)\, ,
+\]</span></p>
+<p>Base Hamiltonian is the harmonic oscillator:</p>
+<p><span class="math display">\[
+H_0(q,p) = \tfrac{1}{2}(q^2  + p^2)\, .
+\]</span></p>
+</section><section class="slide level2">
+
+<h3 id="learnt-transformation">Learnt transformation</h3>
+<p><img data-src="assets/system_flow_toy.png" /></p>
+<p align="center">
+<img src="assets/toy2d_flow.png" width=1500>
+</p>
+</section><section class="slide level2">
+
+<h3 id="fermipastaulam">Fermi–Pasta–Ulam</h3>
+<p><span class="math display">\[
+H = \sum_{i=1}^N \frac{1}{2} [p_i^2 + (q_{i} - q_{i+1})^2] + \frac{\alpha}{3} (q_{i} - q_{i+1})^3 + \frac{\beta}{4} (q_{i} - q_{i+1})^4
+\]</span></p>
+<p align="center">
+<img src="assets/FPU.gif">
+</p>
+</section><section class="slide level2">
+
+<h3 id="transform-normal-modes">Transform Normal Modes</h3>
+<ul>
+<li><span class="math inline">\(N=5\)</span> sites, 4 nonzero modes</li>
+</ul>
+<p><img data-src="assets/canonical-flows-7a8537dd.png" /></p>
+<ul>
+<li>It’s not making things worse!</li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="outlook">Outlook</h3>
+<ul>
+<li><p>Prethermalization / Generalized Gibbs Ensemble</p></li>
+<li><p>Continuous Canonical Transformations</p></li>
+<li><p>Convolutional bijectors, identical particles. etc.</p></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
