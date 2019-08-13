@@ -7,6 +7,10 @@ author: Austen Lamacraft
 
 In contravention of [Betteridge's Law](https://en.wikipedia.org/wiki/Betteridge%27s_law_of_headlines), I'll try and argue that the answer to this question is 'yes'. Whether or not this observation is of any use -- aside from linking two voguish subjects -- is a separate question.
 
+## Bellman Equation
+
+
+
 ## Reinforcement Learning (RL)
 
 Let's recapitulate the textbook definition of RL as a [Markov decision process](https://en.wikipedia.org/wiki/Markov_decision_process) for an agent in an environment. Our environment changes state with probabilities conditional upon the current state $s_t$ and the action $a_t$ taken by our agent
@@ -32,6 +36,10 @@ $$
 $$
 
 Reinforcement learning is concerned with how best to choose the policy to maximize the expected return. The current boom in reinforcement learning, mostly attributed to DeepMind's Atari and AlphaGo successes, centres on using neural networks to learn the process end-to-end without an explicit internal model of environmental states or actions. The idea is that such an approach is suited to 'real-world' tasks where the number of environmental states is huge (or infinite) and / or hard to parameterize explicitly.
+
+## Control _vs._ Inference
+
+
 
 ## Large deviations for nonequilibrium processes (LD)
 

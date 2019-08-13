@@ -3,7 +3,7 @@ layout: paper
 title: "Quantum Brownian motion in a quasiperiodic potential"
 image: /assets/images/papers/LocPlotNew.png
 authors: Aaron J Friedman, Romain Vasseur, Austen Lamacraft, S. A. Parameswaran
-year: 2018
+year: 2019
 ref: 	arXiv:1901.02939
 journal: arXiv
 doi:

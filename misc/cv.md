@@ -19,8 +19,8 @@ Theoretical Physicist
 
 ## Currently
 
-`2014-`
-__University of Cambridge__ Reader in Theoretical Physics, Department of Physics.
+`2019-`
+__University of Cambridge__ Professor of Theoretical Physics, Department of Physics.
 
 `2017-`
 __GTN Ltd__ Advisor to startup disrupting drug discovery with a combination of Machine Learning and Quantum Mechanics.
@@ -31,7 +31,6 @@ __Spotify__ Independent contractor, researching machine learning models for audi
 ## Recent Projects
 
 
-
 `2017`
 __TrMPS__ Quantum inspired probabilistic models in machine learning. Ongoing work at [github.com/TrMPS](https://github.com/TrMPS).
 
@@ -40,6 +39,9 @@ __TrMPS__ Quantum inspired probabilistic models in machine learning. Ongoing wor
 __PyCav__ Unifying computing in the Cambridge undergraduate physics course under a single framework based on Python. See [pycav.org](http://pycav.org).
 
 ## Employment
+
+`2014-2019`
+__University of Cambridge__ Reader in Theoretical Physics, Department of Physics.
 
 `2012-14`
 __University of Cambridge__ University Lecturer, Department of Physics
@@ -100,11 +102,12 @@ Royal Society University Research Fellowship (declined), 2007
 Miller Fellowship, UC Berkeley (declined), 2002
 
 
-## Publications
+## Publications (2009-)
 
 <section>
 
 {% for paper in site.publications reversed %}
+	{% if paper.year > 2008 %}
     {% cycle 'add rows': '<div class="row">', nil, nil %}
       <p><code class="highlighter-rouge">{{ paper.year }}</code>
       {{ paper.title }}
@@ -117,8 +120,8 @@ Miller Fellowship, UC Berkeley (declined), 2002
       </p>
 			<div class="bigspacer"></div>
 			<div class="spacer"></div>
-
     {% cycle 'close rows': nil, nil, '</div>' %}
+	{% endif %}
 {% endfor %}
 
 </section>
