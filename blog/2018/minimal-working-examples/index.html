@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Austen Lamacraft | Minimal Working Examples</title>
+  <meta name="description" content="Not another Austen Lamacraft site. Based on [al-folio](https://github.com/alshedivat/al-folio).
+">
+
+  <link rel="shortcut icon" href="https://austenlamacraft.github.io/mwe/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="https://austenlamacraft.github.io/mwe/assets/css/main.css">
+  <link rel="canonical" href="https://austenlamacraft.github.io/mwe/blog/2018/minimal-working-examples/">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <!-- <span class="site-title"> -->
+        <a class="site-title" href="https://austenlamacraft.github.io/mwe/">
+        
+        <strong>Austen</strong> Lamacraft
+      </a>
+    <!-- </span> -->
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <!-- <a class="page-link" href="https://austenlamacraft.github.io/mwe/">about</a> -->
+
+        <!-- Blog -->
+        <a class="page-link" href="https://austenlamacraft.github.io/mwe/blog/">blog</a>
+
+        <!-- Pages -->
+        
+          
+            
+          
+        
+          
+        
+          
+            
+              <a class="page-link" href="https://austenlamacraft.github.io/mwe/demos/">demos</a>
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="page-link" href="https://austenlamacraft.github.io/mwe/publications/">publications</a>
+            
+          
+        
+          
+            
+              <a class="page-link" href="https://austenlamacraft.github.io/mwe/talks/">talks</a>
+            
+          
+        
+          
+            
+              <a class="page-link" href="https://austenlamacraft.github.io/mwe/teaching/">teaching</a>
+            
+          
+        
+          
+            
+          
+        
+
+        <!-- CV link -->
+        <!-- <a class="page-link" href="https://austenlamacraft.github.io/mwe/assets/pdf/CV.pdf">vitae</a> -->
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Minimal Working Examples</h1>
+    <p class="post-meta">April 27, 2018 • Austen Lamacraft</p>
+  </header>
+
+  <article class="post-content">
+    <p>I wrote the following as a preamble to my <a href="http://tqm.courses.phy.cam.ac.uk/">fourth year course</a> on many body physics. It’s a short manifesto for us ‘emergents’ – the part of condensed matter that doesn’t do first principles calculations – to try to explain why thinking about hugely simplified models is a fruitful endeavour and not (as Adam Nahum once put it to me) “a really complicated board game”.</p>
+
+<h2 id="models-of-matter">Models of Matter</h2>
+
+<p>The purpose of this course is to introduce <strong>simple models</strong> of phenomena in condensed matter physics, and to equip you with the tools needed to analyse their behaviour.</p>
+
+<p>It’s important to realise that in general simple models are neither tractable, nor display simple behaviour! To take an example: all students of physics are familiar with the <a href="https://en.wikipedia.org/wiki/Ising_model">Ising model</a> of magnetism, which caricatures a lattice of magnetic ions and their complex interactions. The Ising model is defined in terms of an energy function</p>
+
+<script type="math/tex; mode=display">H = J\sum_{\langle j\,k\rangle} \sigma_j \sigma_k,</script>
+
+<p>where the ‘spin’ variables $\sigma_j$ take the values $\pm 1$. The notation ${\langle j\,k\rangle}$ indicates that the sum is over all nearest neighbour pairs on some (e.g. cubic) lattice. A negative coupling $J&lt;0$ tends to promote alignment of the spins.</p>
+
+<p>The calculation of the partition function of the Ising model, and hence of its thermodynamic behaviour, is simple in 1D, extremely hard in 2D, and – as far as we know – impossible in the most interesting case of three dimensions. As well as being intractable, it is also highly unrealistic. The complexity of the magnetic atom, consisting of tens of electrons, is reduced to a single variable describing the spin only, which is not even treated quantum mechanically.  Why on earth should we care?</p>
+
+<p>The point is that the Ising model is a <a href="https://en.wikipedia.org/wiki/Minimal_Working_Example">minimal working example</a>. It is designed with the minimal set of ingredients necessary to demonstrate the phenomenon of ferromagnetism. The puzzle it seeks to explain is: how do a large number of microscopic ‘magnets’ (the spins), undergoing thermal fluctuations that are constantly seeking to randomize their direction, decide to develop a macroscopic magnetization in a particular direction?  Why does the magnetization appear abruptly at the the <a href="https://en.wikipedia.org/wiki/Curie_temperature">Curie temperature</a>, rather than gradually? Obviously the spins cannot be independent. The fact that the Ising model has a magnetic transition shows us that a nearest neighbour coupling is enough.</p>
+
+<p>That we can cook up such minimal models <em>and analyze them</em>, even if we can’t solve them exactly, gives us confidence that whether we are talking about Iron, Nickel, or Cobalt, the essence of the magnetic transition is the same. By understanding something about the Ising model, we can say we have understood something about magnetism <em>in general</em>.</p>
+
+<p>This certainly doesn’t mean the end of story, of course. Firstly, one can try to move towards a more realistic description of ferromagnetism. What is the microscopic origin and size of the coupling? Why does Cobalt have a higher Curie temperature than Nickel? How does the magnetism interact with other properties of the metal? These are all valid questions beyond our minimal working example.</p>
+
+<p>Secondly, one can ask whether, with similar models, one can describe <em>qualitatively different phenomena</em>. If $J&gt;0$ do the spins <em>anti</em>-align at some transition? What if we change the lattice? Make it disordered? Let $\sigma_j$ be a vector instead of a scalar? Make it truly quantum?</p>
+
+<p>This course pursues this second line of investigation. We will look at the simplest models decribing interacting bosons, fermions, and spins, and try to describe the properties of the states of matter that they form. These states of matter – magnets, metals, superconductors – have real world counterparts, and by studying their toy versions we learn what makes them tick. This strategy of introducing and analyzing new models is one of the ways in which theorists try to learn what states of matter <em>may</em> exist, and under what conditions.</p>
+
+  </article>
+
+  
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname  = 'minimalworkingexample';
+      var disqus_identifier = '/blog/2018/minimal-working-examples';
+      var disqus_title      = "Minimal Working Examples";
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+</div>
+
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    &copy; Copyright 2019 Austen Lamacraft.
+    
+    
+  </div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="https://austenlamacraft.github.io/mwe/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+
+<!--
+This script is required because the github-pages gem does not allow MathJax to be turned off in kramdown, so $$...$$ gets turned into <script type='math/tex'>...</script>
+
+Hopefully it will shortly be possible to turn it off
+https://github.com/github/pages-gem/pull/545
+-->
+<script src="https://austenlamacraft.github.io/mwe/assets/js/katex.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js" integrity="sha384-IiI65aU9ZYub2MY9zhtKd1H2ps7xxf+eb2YFG9lX6uRqpXCvBTOidPRCXCrQ++Uc" crossorigin="anonymous"></script>
+<script>
+renderMathInElement(
+        document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        }
+    );
+</script>
+
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://austenlamacraft.github.io/mwe/assets/css/academicons.min.css">
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXXXXXX', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+
+</html>
