@@ -31,8 +31,8 @@ __Spotify__ Independent contractor, researching machine learning models for audi
 ## Recent Projects
 
 
-`2017`
-__TrMPS__ Quantum inspired probabilistic models in machine learning. Ongoing work at [github.com/TrMPS](https://github.com/TrMPS).
+`2019`
+__Learning Symmetries of Classical Integrable Systems__ Presented at [ICML 2019 Physics for Deep Learning Workshop](https://sites.google.com/view/icml2019phys4dl/accepted-papers?authuser=0).
 
 
 `2016`
@@ -65,7 +65,7 @@ __Barclays Capital__ Derivatives Trader, Interest Rate Exotics
 ## Education
 
 `1999-02`
-__University of Cambridge__ PhD Theoretical Physics (Supervisor: Ben Simons)
+__University of Cambridge__ PhD Theoretical Physics
 
 `1997-98`
 __University of Cambridge__ MMath (Part III Mathematics, Distinction)
